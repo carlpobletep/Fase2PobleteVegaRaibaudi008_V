@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en"> 
+  <head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">	
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="js/funcion.js"></script>
+    <title>Chuña LTDA</title>
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+
+    <img2><a href="chuñalogo.html"><img src="{% static 'img/chuñalogo.jpg' %}" alt="" width="30" height="30"></a></img2>
+	
+	
+	
+  </head>
+  {% load static %}
+  <body>
+   {% block title %} <h1 id="titulo1">Distribuidora de cervezas</h1>{% endblock %}
+
+    {% block content %}
+    <p id="titulo2"> <b>A su servicio desde el año 1993<b><br><br><br></p>
+	
+    <ul>
+      <p2><b>Nuestros productos<b>:<br></p2>
+	  <br><br><br>
+
+
+	
+	
+	<table align= center>
+	
+
+  <tr>
+  {% if Cerveza_list %}
+	{% for i in Cerveza_list %}
+  <div id="contenedor{{forloop.counter}}">
+    <div class="chela">
+      <img class="fotos" src="{{ i.imagen.url }}">
+      <span class="producto">{{ i.Nombre }}</span>
+      <span class="producto"><strong>$ {{ i.precio }}</strong></span>
+    </div>
+  </div>
+		<p1><b> Cantidad:</b></p1>
+		<select name="menu">
+  <option>1</option>
+  <option>2</option>
+  <option>3</option>
+  <option>4</option>
+  <option>5</option>
+</select>
+		<img2><a href="carrito.html"><img src="{% static 'img/carrito.jpg' %}"alt="" width="30" height="30"></a></img2>
+		
+	</ul></td>
+{% endfor %}
+
+      {% else %}
+        <p> No hay Chelas</p>
+      {% endif %}
+
+<center><form name="Form" action="carrito.html" method="POST">
+			<select name="cantidad">
+                 <option value="1">1</option> 
+                 <option value="2">2</option> 
+                 <option value="3">3</option>
+                 <option value="4">4</option> 
+                 <option value="5">5</option> 
+                 <option value="6">6</option> 
+              </select>
+			  <img2><a href="carrito.html"><img src="imagenes\carrito.jpg" alt="" width="30" height="30"></a></img2>
+
+		 
+
+            </form></center>
+
+	</ul></td>
+
+  </tr>
+
+</table>
+	
+<p> <a href="Contacto.html">Contacto</a></p>
+<p> <a href="carrito.html">Carrito</a></p>
+
+{% endblock %}
+	
+  </body>
+</html>
